@@ -1089,10 +1089,17 @@ namespace LiveKit.Rtc
                             $"Publication {evt.PublicationSid} not found"
                         );
 
-                    LocalTrackUnpublished?.Invoke(
-                        this,
-                        new LocalTrackPublishedEventArgs(publication, localParticipant)
-                    );
+                    try
+                    {
+                        LocalTrackUnpublished?.Invoke(
+                            this,
+                            new LocalTrackPublishedEventArgs(publication, localParticipant)
+                        );
+                    }
+                    finally
+                    {
+                        publication.Handle.Dispose();
+                    }
                 }
                 catch (Exception ex)
                 {
