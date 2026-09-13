@@ -105,7 +105,8 @@ protoc \
     "$RTC_PROTOCOL/stats.proto" \
     "$RTC_PROTOCOL/rpc.proto" \
     "$RTC_PROTOCOL/data_stream.proto" \
-    "$RTC_PROTOCOL/data_track.proto"
+    "$RTC_PROTOCOL/data_track.proto" \
+    "$RTC_PROTOCOL/capture.proto"
 
 echo "✓ LivekitRtc proto files generated successfully"
 echo ""
